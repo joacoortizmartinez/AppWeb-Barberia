@@ -7,12 +7,23 @@ from clases.reservas import Reserva
 from clases.user import User
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
+from functools import wraps
 
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads/'
 
 app.secret_key = 'AguanteRiver912'
+
+
+#------------------------------Decorador Verificar Sesión de Usuario-------------------------------------
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 #---------------------------------------COMIENZO DE RUTAS--------------------------------------------------#
@@ -98,55 +109,6 @@ def obtener_horarios_disponibles():
 
 
 
-#-------------------------------------------HORARIOS-----------------------------------------#
-@app.route('/configurar_horarios', methods=['GET', 'POST'])
-def configurar_horarios():
-    if request.method == 'POST':
-        inicio = request.form['inicio']
-        fin = request.form['fin']
-        intervalo = int(request.form['intervalo'])
-        
-        
-        cone = obtener_bd()
-        cursor = cone.cursor() 
-        
-        
-        query = "INSERT INTO horarios (inicio, fin, intervalo) VALUES (%s, %s, %s);"
-        values = (inicio, fin, intervalo)
-        
-        try:
-            cursor.execute(query, values)
-
-        except Error as e:
-            print (f" Hubo un error, disculpe")
-        
-        finally:
-            cerrar_bd(cone, cursor)
-        
-        guardar_horarios(inicio, fin, intervalo)
-        return redirect(url_for('inicio'))
-
-    return render_template('admin/configuracion_horario.html')
-
-def guardar_horarios(inicio, fin, intervalo):
-    cone = obtener_bd()
-    cursor = cone.cursor()  
-    
-    query = "INSERT INTO horarios (inicio, fin, intervalo) VALUES (%s, %s, %s);"
-    values = (inicio, fin, intervalo)
-        
-    try:
-        cursor.execute('DELETE FROM horarios')
-        cursor.execute(query, values)
-        cone.commit()
-
-    except Error as e:
-        print (f" Hubo un error, disculpe")
-        
-    finally:
-            cerrar_bd(cone, cursor)
-
-
 #----------------------------------reg--------------------------------------------------#
 @app.route('/registro')
 def registro():
@@ -158,12 +120,13 @@ def registrarse():
     if request.method == 'POST':
         usuario = request.form['usuario']
         password = request.form['password']
-
+        rol = request.form['rol']
+        
         hashed_password = generate_password_hash(password, method='sha256')
         
-        user = User(usuario, hashed_password)
-        query = "INSERT INTO barbero (usuario, password) VALUES (%s, %s);"
-        values = (user.get_usuario(), user.get_password())
+        user = User(usuario, hashed_password, rol)
+        query = "INSERT INTO barbero (usuario, password, rol) VALUES (%s, %s, %s);"
+        values = (user.get_usuario(), user.get_password(), rol)
 
         
         cone = obtener_bd()
@@ -208,6 +171,7 @@ def login():
                 if check_password_hash(user['password'], password):
                     session['user_id'] = user['id_baarbero']
                     session['username'] = user['usuario']
+                    session['rol'] = user['rol']
                     flash('Inicio de sesión exitoso')
                     return redirect(url_for('admin_inicio'))
                 else:
@@ -230,8 +194,53 @@ def login():
 
 #----------------------------------admin inicio---------------------------------------------#
 @app.route('/admin-inicio', methods=['GET', 'POST'])
+@login_required
 def admin_inicio():
+    if session.get('rol') != 'adyn':
+        flash('Acceso denegado: No tienes permisos suficientes.', 'danger')
+        return redirect(url_for('inicio'))
     return render_template('admin/admin.html')
+
+
+
+
+#-------------------------------------------HORARIOS-----------------------------------------#
+@app.route('/configurar-horarios', methods=['GET', 'POST'])
+@login_required
+def configurar_horarios():
+    if session.get('rol') != 'adyn':
+        flash('Acceso denegado: No tienes permisos suficientes.', 'danger')
+        return redirect(url_for('inicio'))
+    
+    if request.method == 'POST':
+        inicio = request.form['inicio']
+        fin = request.form['fin']
+        intervalo = int(request.form['intervalo'])
+        
+        
+        cone = obtener_bd()
+        cursor = cone.cursor() 
+        
+        
+        query = "INSERT INTO horarios (inicio, fin, intervalo) VALUES (%s, %s, %s);"
+        values = (inicio, fin, intervalo)
+        
+        try:
+            cursor.execute('DELETE FROM horarios')
+            cursor.execute(query, values)
+            cone.commit()
+
+        except Error as e:
+            print (f" Hubo un error, disculpe")
+        
+        finally:
+            cerrar_bd(cone, cursor)
+        
+        return redirect(url_for('admin_inicio'))
+
+    return render_template('admin/configuracion_horario.html')
+
+
 
 #----------------------------------FIN DE RUTAS--------------------------------------------------#
 
