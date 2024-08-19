@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar Horarios</title>
+    <style>
+        /* Estilo general para el formulario */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilo para el título */
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilo para las etiquetas de los campos */
+        form label {
+            display: block;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        /* Estilo para los campos de entrada de hora y el select */
+        form input[type="time"],
+        form select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para el botón de envío */
+        form button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Cambia el color del botón al pasar el mouse por encima */
+        form button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        /* Estilo adicional para ajustar el diseño en pantallas pequeñas */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+
+            form label {
+                font-size: 16px;
+            }
+
+            form input[type="time"],
+            form select {
+                font-size: 14px;
+            }
+
+            form button[type="submit"] {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Configurar Horarios de Reserva</h1>
+    <form method="POST">
+        <label for="inicio">Hora de Inicio:</label>
+        <input type="time" id="inicio" name="inicio" required>
+        <br>
+        <label for="fin">Hora de Fin:</label>
+        <input type="time" id="fin" name="fin" required>
+        <br>
+        <label for="intervalo">Intervalo:</label>
+        <select id="intervalo" name="intervalo">
+            <option value="15">15 minutos</option>
+            <option value="30">30 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="60">60 minutos</option>
+        </select>
+        <br>
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>

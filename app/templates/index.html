@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+      
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"> <img src="https://st2.depositphotos.com/7473544/44085/v/450/depositphotos_440852214-stock-illustration-barbershop-poster-banner-template-with.jpg"> </a>
+        </div>
+        <div class="nav-links">
+            <a href="/"> <strong> INICIO </strong> </a>
+            <a href="#servicios"><strong>SERVICIOS</strong></a>
+            <a href="#sucursales"><strong>SUCURSALES</strong></a>
+            <a href="/reservar"><strong>RESERVA TU TURNO</strong></a>
+
+        </div>
+    </div>
+    <div class="background-image">
+        <div class="centered-text">
+            <div class="main-text">THE GENTLEMAN's TRIM</div>
+        </div>
+    </div>
+
+    <div class="image-text-container">
+        <div class="imagen-debajo">
+            <h2> Nosotros </h2>
+        </div>
+        <div class="text-right">
+            <p>       Nos enfocamos en mejorar la imagen de nuestros clientes.
+                Nuestro objetivo es ofrecerte el mejor servicio y estar 
+                siempre a la vanguardia.
+                Por eso, hemos creado un espacio en el que te sientas a gusto 
+                y disfrutes al máximo.
+                Queremos que te sientas un Gentleman de verdad, que sea tu 
+                lugar para cambiar tu look,
+                relajarte, tomar una buena cerveza y pasarla genial con amigos.
+                <br><br>
+                <img class="insss" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHP2W0X8Bj9Wwou8Y5Iv2q_Aa-nME9SMwEAA&s">
+                <a href="https://www.instagram.com/"> Instagram</a>
+                
+                <img class="twitter" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnopzvX1Pfe38aZFC1Sgh-3fvwQR3jInTnjQ&s">
+                <a href="https://www.x.com/"> Twitter</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="servicios" class="servicios-imagenes">
+        <div class="servicio">
+            <div class="text-corte">Corte</div>
+            <div class="imagen-corte">
+                <img src="https://images.unsplash.com/photo-1593702295094-aea22597af65?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGJhcmJlcnxlbnwwfHwwfHx8MA%3D%3D" alt="Corte">
+            </div>
+            <div class="descripcion-corte">Disfruta de un corte de cabello a la moda realizado por nuestros expertos barbers. Utilizamos técnicas modernas para garantizar que cada corte se adapte a tu estilo personal y resalte tu mejor look</div>
+        </div>
+        
+        <div class="servicio">
+            <div class="text-barba">Barba</div>
+            <div class="imagen-barba">
+                <img src="https://images.unsplash.com/photo-1532710093739-9470acff878f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFyYmVyfGVufDB8fDB8fHww" alt="Barba">
+            </div>
+            <div class="descripcion-barba">Renueva tu imagen con un afeitado o arreglo de barba profesional. Nuestros barberos utilizan productos de alta calidad para mantener tu barba en su mejor estado, cuidando cada detalle para ofrecerte un acabado impecable y un toque de sofisticación.</div>
+        </div>
+        
+        <div class="servicio">
+            <div class="text-nino">Niño</div>
+            <div class="imagen-ninos">
+                <img src="https://images.unsplash.com/photo-1516470930795-6ba2564824aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmFyYmVyfGVufDB8fDB8fHww" alt="Niño">
+            </div>
+            <div class="descripcion-nino">Haz que tu pequeño luzca genial con un corte de cabello hecho a medida para niños. Nuestro equipo está especializado en cortes infantiles, ofreciendo un servicio amigable y profesional</div>
+        </div>
+    </div>
+    
+    
+    <div id="sucursales" class="sucursales-section">
+        <h2>Nuestras Sucursales</h2>
+        <div class="sucursales-container">
+            <div class="sucursal">
+                <a href="https://www.google.com/maps/place/Av.+del+Libertador+1234,+C1112ABP+Cdad.+Aut%C3%B3noma+de+Buenos+Aires/@-34.5849727,-58.3934003,17z/data=!3m1!4b1!4m5!3m4!1s0x95bccaa1633e522d:0xdd9f33cab0671939!8m2!3d-34.5849727!4d-58.3908254?entry=ttu">
+                    <img src="https://www.corbataslester.com/magazine/wp-content/uploads/2019/03/Les-Mauvais-Garcons.jpg" alt="Sucursal 1">
+                    <div class="sucursal-info">
+                        <h3>Sucursal 1</h3>
+                        <p>Av. Libertador 1234, Buenos Aires</p>
+                    </div>
+                </a>
+            </div>
+            <div class="sucursal">
+                <a href="https://www.google.com/maps/place/Av.+Independencia+2134,+B7600DIR+Mar+del+Plata,+Provincia+de+Buenos+Aires/@-37.9998914,-57.5582623,17z/data=!3m1!4b1!4m5!3m4!1s0x9584dea9ad2782ff:0x9fa7bbbfefef1daa!8m2!3d-37.9998914!4d-57.5556874?entry=ttu">
+                    <img src="https://i.pinimg.com/originals/65/23/96/6523964a7f378dbbf0130564d50a4919.jpg" alt="Sucursal 2">
+                    <div class="sucursal-info">
+                        <h3>Sucursal 2</h3>
+                        <p>Av. Independencia 2134, Mar del Plata</p>
+                    </div>
+                </a>
+            </div>
+            <div class="sucursal">
+                <a href="https://www.google.com/maps/place/Peatonal+San+Mart%C3%ADn+2134,+B7600GQB+Mar+del+Plata,+Provincia+de+Buenos+Aires/@-38.0018028,-57.5450612,17z/data=!3m1!4b1!4m5!3m4!1s0x9584dc1a0b5fa799:0x3ec1a0f3f2beec68!8m2!3d-38.0018028!4d-57.5424863?entry=ttu">
+                    <img src="https://p1.pxfuel.com/preview/530/248/10/barbershop-amsterdam-window-street-urban-exterior.jpg" alt="Sucursal 3">
+                    <div class="sucursal-info">
+                        <h3>Sucursal 3</h3>
+                        <p> San martin 2134, Mar del Plata</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+
+</body>
+</html>

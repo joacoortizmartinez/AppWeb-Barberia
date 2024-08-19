@@ -1,0 +1,310 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f8f8f0;
+}
+
+.navbar {
+    padding: 4px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 10px;
+}
+
+.logo img {
+    height: 35px;
+}
+
+.nav-links {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 0 4px;
+    font-size: 13px;
+    border: 2px solid transparent;
+    transition: border 0.4s;
+    padding: 5px 10px;
+}
+
+.nav-links a:hover {
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.background-image {
+    background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 75vh;
+    position: relative;
+    z-index: 1;
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 5px;
+}
+
+.main-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 70px;
+    font-weight: 750;
+}
+
+.imagen-debajo {
+    margin-left: 600px;
+    margin-top: 160px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.text-right {
+    margin-left: 500px;
+    margin-right: 500px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;  
+}
+
+.servicios-imagenes {
+    margin-top: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 20px 0;
+    margin-bottom: 1px; /* Reduce the space below the image */
+}
+
+.servicio {
+    margin-top: 300px;
+    position: relative;
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.text-corte, .text-barba, .text-nino {  
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+    margin-bottom: 1px; /* Reduce the space below the title */
+}
+
+.descripcion-corte, .descripcion-barba, .descripcion-nino {
+    font-size: 18px;
+    color: #666;
+    margin-top: 10px;
+    margin-top: 1px; /* Reduce the space above the description */
+}
+
+.servicio img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.imagen-corte, .imagen-barba, .imagen-ninos {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+
+.insss {
+    width: 20px; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-top: 10px; /* Agrega un pequeño margen superior */
+    
+}
+
+.twitter{
+    width: 20px; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-top: 10px; /* Agrega un pequeño margen superior */
+    
+}
+.text-right a {
+    color: inherit; /* Usa el color del texto padre */
+    text-decoration: none; /* Elimina la línea de subrayado */
+    font-weight: bold; /* Puedes añadir este para que el texto sea más visible */
+    justify-items: auto;
+}
+
+
+
+/* Media Queries para hacer responsive */
+@media (max-width: 1200px) {
+    .imagen-debajo, .text-right {
+        margin-left: 100px;
+        margin-right: 100px;
+        font-size: 18px;
+    }
+
+    .text-corte, .text-barba, .text-nino {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .background-image {
+        height: 50vh;
+    }
+
+    .imagen-debajo, .text-right {
+        margin-left: 50px;
+        margin-right: 50px;
+        font-size: 16px;
+    }
+
+    .text-corte, .text-barba, .text-nino {
+        font-size: 20px;
+        margin-top: 150px;
+    }
+
+    .servicios-imagenes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servicio {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+
+    .imagen-corte, .imagen-ninos, .imagen-barba {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-text {
+        font-size: 40px;
+    }
+
+    .text-corte, .text-barba, .text-nino {
+        font-size: 16px;
+        margin-top: 100px;
+    }
+
+    .imagen-debajo, .text-right {
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+/*COMIENZO SUCURSAL-----------------------*/
+.sucursales-section {
+    margin-top: 300px;
+    padding: 50px 0;
+    background-color: #f8f8f0;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.sucursales-section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.sucursales-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sucursal {
+    flex-basis: 30%;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sucursal a {
+    text-decoration: none; /* Elimina la línea debajo de los enlaces */
+}
+
+.sucursal img {
+    width: 100%;
+    height: auto;
+}
+
+.sucursal-info {
+    padding: 15px;
+}
+
+.sucursal-info h3 {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #000;
+}
+
+.sucursal-info p {
+    margin: 0;
+    font-size: 18px;
+    color: #666;
+}
+
+/* Asegura que todas las imágenes tengan el mismo tamaño */
+.sucursal img {
+    object-fit: cover;
+    height: 250px; /* Puedes ajustar la altura según tus necesidades */
+}
+
+
+
+
+
+

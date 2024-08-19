@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Turno</title>
+    <style>
+        /* Estilo general para el formulario */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilo para el título */
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilo para las etiquetas de los campos */
+        form label {
+            display: block;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        /* Estilo para los campos de entrada de texto, teléfono, fecha y hora */
+        form input[type="text"],
+        form input[type="tel"],
+        form input[type="date"],
+        form select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para el botón de envío */
+        form button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Cambia el color del botón al pasar el mouse por encima */
+        form button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        /* Estilo adicional para ajustar el diseño en pantallas pequeñas */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+
+            form label {
+                font-size: 16px;
+            }
+
+            form input[type="text"],
+            form input[type="tel"],
+            form input[type="date"],
+            form select {
+                font-size: 14px;
+            }
+
+            form button[type="submit"] {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Reserva tu Turno</h1>
+    <form method="POST">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="telefono">Número de Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+        <br>
+        <label for="sucursal">Sucursal:</label>
+        <select id="sucursal" name="sucursal" required>
+            <option value="Sucursal 1">Sucursal 1</option>
+            <option value="Sucursal 2">Sucursal 2</option>
+            <option value="Sucursal 3">Sucursal 3</option>
+        </select>
+        <br>
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        <br>
+        <label for="hora">Hora:</label>
+        <select id="hora" name="hora" required>
+            {% for hora in horarios %}
+                <option value="{{ hora }}">{{ hora }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Reservar</button>
+    </form>
+</body>
+</html>
