@@ -217,7 +217,7 @@ def login():
                 flash('Usuario/pass  incorrectas')
                 return redirect(url_for('login'))
         
-        except mysql.connector.Error as e:
+        except Error as e:
             print(f'Error: {e}')
             flash('Error en la base de datos')
             return redirect(url_for('login'))
