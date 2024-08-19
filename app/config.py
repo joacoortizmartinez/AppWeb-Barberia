@@ -9,11 +9,10 @@ DATABASE_CONFIG = {
     }
 
 def obtener_bd():
-    conex = mysql.connector.connect(**DATABASE_CONFIG)
-    return conex
+    cone = mysql.connector.connect(**DATABASE_CONFIG)
+    return cone
 
-def cerrar_bd(conex, cursor):
-    if conex.is_connected():
-        cursor.close()
-        conex.close()
+def cerrar_bd(cone, cursor):
+    cursor.close()
+    cone.close()
         

@@ -1,12 +1,12 @@
 import os
-from flask import Flask, render_template, request, url_for, redirect, jsonify, flash
+from flask import Flask, render_template, request, url_for, redirect, jsonify, flash, session
 from config import obtener_bd, cerrar_bd
 from mysql.connector import Error
 import mysql.connector
 from clases.reservas import Reserva
 from clases.user import User
 from datetime import datetime, timedelta
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
@@ -173,7 +173,7 @@ def registrarse():
             cursor.execute(query, values)
             cone.commit()
             flash('Usuario registrado exitosamente')
-            return redirect(url_for('inicio'))
+            return redirect(url_for('login'))
         
         except Error as e:
             flash(f'Error {e} ')
@@ -185,7 +185,53 @@ def registrarse():
     return render_template('admin/registro.html')
 
 #----------------------------------log--------------------------------------------------#
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        usuario = request.form['usuario']
+        password = request.form['password']
+        
+        cone = obtener_bd()
+        cursor = cone.cursor(dictionary=True)
+        
+        query = 'SELECT * FROM barbero WHERE usuario = %s'
+        values = (usuario,)
+        
+        try:
+            cursor.execute(query, values)
+            users = cursor.fetchall()  # Cambiado a fetchall
+            
+            # Verifica si hay usuarios en el resultado
+            if users:
+                user = users[0]  # Obtener el primer resultado de la lista
+                
+                if check_password_hash(user['password'], password):
+                    session['user_id'] = user['id_baarbero']
+                    session['username'] = user['usuario']
+                    flash('Inicio de sesión exitoso')
+                    return redirect(url_for('admin_inicio'))
+                else:
+                    flash('Credenciales incorrectas')
+                    return redirect(url_for('login'))
+            else:
+                flash('Credenciales incorrectas')
+                return redirect(url_for('login'))
+        
+        except mysql.connector.Error as e:
+            print(f'Error: {e}')
+            flash('Error en la base de datos')
+            return redirect(url_for('login'))
+        
+        finally:
+            cerrar_bd(cone, cursor)
+            
+    return render_template('admin/login.html')
 
+
+#----------------------------------admin inicio---------------------------------------------#
+@app.route('/admin-inicio', methods=['GET', 'POST'])
+def admin_inicio():
+    return render_template('admin/admin.html')
 
 #----------------------------------FIN DE RUTAS--------------------------------------------------#
 
