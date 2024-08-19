@@ -199,11 +199,11 @@ def login():
         
         try:
             cursor.execute(query, values)
-            users = cursor.fetchall()  # Cambiado a fetchall
+            users = cursor.fetchall()
             
-            # Verifica si hay usuarios en el resultado
+            
             if users:
-                user = users[0]  # Obtener el primer resultado de la lista
+                user = users[0]
                 
                 if check_password_hash(user['password'], password):
                     session['user_id'] = user['id_baarbero']
@@ -211,10 +211,10 @@ def login():
                     flash('Inicio de sesión exitoso')
                     return redirect(url_for('admin_inicio'))
                 else:
-                    flash('Credenciales incorrectas')
+                    flash('Usuario/pass incorrectas')
                     return redirect(url_for('login'))
             else:
-                flash('Credenciales incorrectas')
+                flash('Usuario/pass  incorrectas')
                 return redirect(url_for('login'))
         
         except mysql.connector.Error as e:
