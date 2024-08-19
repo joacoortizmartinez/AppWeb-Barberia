@@ -117,14 +117,14 @@ body {
     border-radius: 5px;
     font-family: 'Playfair Display', serif;
     margin-bottom: 10px;
-    margin-bottom: 1px; /* Reduce the space below the title */
+    margin-bottom: 1px; 
 }
 
 .descripcion-corte, .descripcion-barba, .descripcion-nino {
     font-size: 18px;
     color: #666;
     margin-top: 10px;
-    margin-top: 1px; /* Reduce the space above the description */
+    margin-top: 1px; 
 }
 
 .servicio img {
@@ -146,22 +146,22 @@ body {
 
 
 .insss {
-    width: 20px; /* Ajusta el ancho de la imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin-top: 10px; /* Agrega un pequeño margen superior */
+    width: 20px; 
+    height: auto; 
+    margin-top: 10px; 
     
 }
 
 .twitter{
-    width: 20px; /* Ajusta el ancho de la imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin-top: 10px; /* Agrega un pequeño margen superior */
+    width: 20px; 
+    height: auto; 
+    margin-top: 10px; 
     
 }
 .text-right a {
-    color: inherit; /* Usa el color del texto padre */
-    text-decoration: none; /* Elimina la línea de subrayado */
-    font-weight: bold; /* Puedes añadir este para que el texto sea más visible */
+    color: inherit; 
+    text-decoration: none;
+    font-weight: bold; 
     justify-items: auto;
 }
 
@@ -273,7 +273,7 @@ body {
 }
 
 .sucursal a {
-    text-decoration: none; /* Elimina la línea debajo de los enlaces */
+    text-decoration: none; 
 }
 
 .sucursal img {
@@ -297,10 +297,10 @@ body {
     color: #666;
 }
 
-/* Asegura que todas las imágenes tengan el mismo tamaño */
+
 .sucursal img {
     object-fit: cover;
-    height: 250px; /* Puedes ajustar la altura según tus necesidades */
+    height: 250px;
 }
 
 
