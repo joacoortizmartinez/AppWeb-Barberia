@@ -92,58 +92,6 @@ body {
     text-decoration: none;  
 }
 
-.servicios-imagenes {
-    margin-top: 200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    margin: 20px 0;
-    margin-bottom: 1px; /* Reduce the space below the image */
-}
-
-.servicio {
-    margin-top: 300px;
-    position: relative;
-    flex-basis: 30%;
-    text-align: center;
-}
-
-.text-corte, .text-barba, .text-nino {  
-    color: rgb(0, 0, 0);
-    font-size: 30px;
-    font-weight: bold;
-    padding: 5px;
-    border-radius: 5px;
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 10px;
-    margin-bottom: 1px; 
-}
-
-.descripcion-corte, .descripcion-barba, .descripcion-nino {
-    font-size: 18px;
-    color: #666;
-    margin-top: 10px;
-    margin-top: 1px; 
-}
-
-.servicio img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.imagen-corte, .imagen-barba, .imagen-ninos {
-    width: 400px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-}
-
-
 
 .insss {
     width: 20px; 
@@ -167,7 +115,6 @@ body {
 
 
 
-/* Media Queries para hacer responsive */
 @media (max-width: 1200px) {
     .imagen-debajo, .text-right {
         margin-left: 100px;
@@ -199,6 +146,10 @@ body {
         margin-left: 50px;
         margin-right: 50px;
         font-size: 16px;
+    }
+
+    .logo img {
+        height: 25px;
     }
 
     .text-corte, .text-barba, .text-nino {
@@ -304,7 +255,127 @@ body {
 }
 
 
+.footer {
+    margin-top: 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    margin: 10px 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #f8f8f0;
+}
+
+.footer-social {
+    margin: 10px 0;
+}
+
+.footer-social a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.footer-social img {
+    width: 30px;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.footer-social img:hover {
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    margin-top: 10px;
+    font-size: 14px;
+}
 
 
 
 
+
+.servicios-imagenes {
+    margin-top: 150PX;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+    background-color: #f8f8f0;
+}
+
+.servicio {
+    flex: 1 1 calc(33% - 40px);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.text-corte, .text-barba, .text-nino {  
+    color: #333;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+    margin: 0;
+    background-color: #fff;
+}
+
+.descripcion-corte, .descripcion-barba, .descripcion-nino {
+    font-size: 16px;
+    color: #555;
+    padding: 20px;
+    margin: 0;
+}
+
+.servicio img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.servicio img:hover {
+    transform: scale(1.05);
+}

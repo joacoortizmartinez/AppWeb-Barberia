@@ -241,6 +241,50 @@ def configurar_horarios():
     return render_template('admin/configuracion_horario.html')
 
 
+#-------------------------------------------VER RESERVAS-----------------------------------------#
+@app.route('/ver-reservas', methods=['GET', 'POST'])
+@login_required
+def ver_reservas():
+    resultado = []
+    fecha = None
+    
+    if session.get('rol') != 'adyn':
+        flash('Acceso denegado: No tienes permisos suficientes.')
+        return redirect(url_for('inicio'))
+    
+    if request.method == 'POST':
+        fecha = request.form['fecha']
+
+        cone = obtener_bd()
+        cursor = cone.cursor(dictionary=True)
+        query = "SELECT * FROM reservas WHERE fecha = %s"
+
+        try:
+            cursor.execute(query, (fecha,))
+            data = cursor.fetchall()                          
+            
+            for fila in data:        
+                contenido = { 
+                            "id": fila['id'], 
+                            "nombre": fila['nombre'], 
+                            "telefono": fila['telefono'],
+                            "sucursal": fila['sucursal'],
+                            "fecha": fila['fecha'],
+                            "hora": fila['hora'],
+                            }  #11
+                resultado.append (contenido)
+        
+        except Error as e:
+            return f"No se pudo obtener {e}"
+        
+        finally:
+            cerrar_bd(cone, cursor)
+                        
+    return render_template('admin/ver_reservas.html', reservas=resultado, fecha_seleccionada=fecha)
+    
+    
+
+
 
 #----------------------------------FIN DE RUTAS--------------------------------------------------#
 

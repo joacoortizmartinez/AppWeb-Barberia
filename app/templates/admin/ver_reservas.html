@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ver Reservas </title>
+</head>
+<body>
+    <form action="/ver-reservas" method="POST">
+        <label for="fecha">De qué fecha quieres ver las reservas? </label>
+        <input type="date" id="fecha" name="fecha" required>
+        <button type="submit">Ver reservas</button>
+    </form>
+    
+    {% if reservas %}
+        <h2>Reservas para la fecha: {{ fecha_seleccionada }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Sucursal</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reserva in reservas %}
+                    <tr>
+                        <td>{{ reserva.id }}</td>
+                        <td>{{ reserva.nombre }}</td>
+                        <td>{{ reserva.telefono }}</td>
+                        <td>{{ reserva.sucursal }}</td>
+                        <td>{{ reserva.fecha }}</td>
+                        <td>{{ reserva.hora }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>
