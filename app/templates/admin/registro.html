@@ -19,6 +19,8 @@
         <input type="password" id="rol" name="rol" required>
 
         <button type="submit">Registrarse</button>
+        
+        <a href="/login" class="login-link">Iniciar Sesión</a>
     </form>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -28,6 +30,6 @@
             {% endfor %}
         </ul>
     {% endif %}
-{% endwith %}
+    {% endwith %}
 </body>
 </html>

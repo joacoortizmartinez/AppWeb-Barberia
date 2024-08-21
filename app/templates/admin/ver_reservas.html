@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_ver_reservas.css')}}">
 </head>
 <body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
     <form action="/ver-reservas" method="POST">
         <label for="fecha">De qué fecha quieres ver las reservas? </label>
         <input type="date" id="fecha" name="fecha" required>

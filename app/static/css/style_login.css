@@ -39,9 +39,9 @@ input[type="password"] {
 }
 
 button {
-    width: 100%;
+    width: 107%;
     padding: 12px;
-    background-color: #8f4917;
+    background-color: #a15c2a;
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -52,7 +52,7 @@ button {
 }
 
 button:hover {
-    background-color: #5A2D0C; 
+    background-color: #663512; 
 }
 
 /* Estilo para pantallas pequeñas */
@@ -96,4 +96,27 @@ button:hover {
         padding: 8px;
         font-size: 12px;
     }
+}
+
+.registro-link {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px; 
+    font-size: 16px; 
+    font-family: 'Playfair Display', serif; 
+    text-decoration: none; 
+    color: #8f4917; 
+    padding: 8px 12px; 
+    border-radius: 4px; 
+    background-color: #ffffff; 
+    border: 1px solid #8f4917; 
+    transition: all 0.3s ease; 
+}
+
+
+.registro-link:hover {
+    color: #ffffff; 
+    background-color: #533925; 
+    border-color: #8f4917; 
 }
