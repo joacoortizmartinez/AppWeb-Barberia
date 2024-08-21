@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_admin.css')}}">
 </head>
 <body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
     <div class="welcome">
         <h1>Bienvenido a Barberos</h1>
         <p>Seleccione una opción para continuar.</p>
@@ -22,6 +31,7 @@
     <div class="footer">
         <p>&copy; 2024 Sistema de Reservas. Todos los derechos reservados. <a href="https://www.instagram.com/">Contacto</a> | <a href="#">Política de Privacidad</a></p>
     </div>
+    
 </body>
 </html>
 

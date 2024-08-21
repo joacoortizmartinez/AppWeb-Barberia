@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_registro.css')}}">
 </head>
 <body>
+
     <form method="POST" action="/registrarse">
         <label for="usuario">Nombre de usuario:</label>
         <input type="text" id="usuario" name="usuario" required>
@@ -19,6 +20,14 @@
 
         <button type="submit">Registrarse</button>
     </form>
-    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
 </body>
 </html>

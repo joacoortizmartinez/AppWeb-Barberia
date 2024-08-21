@@ -125,24 +125,35 @@ def registrarse():
         hashed_password = generate_password_hash(password, method='sha256')
         
         user = User(usuario, hashed_password, rol)
-        query = "INSERT INTO barbero (usuario, password, rol) VALUES (%s, %s, %s);"
-        values = (user.get_usuario(), user.get_password(), rol)
+        query1 = "INSERT INTO barbero (usuario, password, rol) VALUES (%s, %s, %s);"
+        values1 = (user.get_usuario(), user.get_password(), rol)
 
+        query = "select usuario from barbero where usuario = %s"
+        values = (user.get_usuario(),)
         
         cone = obtener_bd()
         cursor = cone.cursor()
-        
+        cursorsele = cone.cursor(dictionary=True)
         try:
-            cursor.execute(query, values)
-            cone.commit()
-            flash('Usuario registrado exitosamente')
-            return redirect(url_for('login'))
+            cursorsele.execute(query, values)
+            resul = cursorsele.fetchone()
+            
+            if resul == None:
+                cursor.execute(query1, values1)
+                cone.commit()
+                flash('Usuario registrado exitosamente')
+                return redirect(url_for('login'))
+            
+            flash('Usuario existente')
+            return redirect(url_for('registrarse'))
+
         
         except Error as e:
             flash(f'Error {e} ')
             
         finally:
             cerrar_bd(cone, cursor)
+            cursorsele.close()
             
 
     return render_template('admin/registro.html')
