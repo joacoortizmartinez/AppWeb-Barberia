@@ -4,129 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Principal</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f8f0;
-            color: #333;
-            text-align: center;
-            background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .welcome {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 80px 20px;
-            border-bottom: 1px solid #ddd;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 0 0 10px 10px;
-        }
-
-        .welcome h1 {
-            margin: 0;
-            font-size: 42px;
-            font-weight: 700;
-        }
-
-        .welcome p {
-            font-size: 20px;
-            margin-top: 10px;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 120px); /* Ajustar altura para llenar el viewport menos el encabezado */
-            flex-direction: column;
-        }
-
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .buttons a {
-            display: inline-block;
-            text-decoration: none;
-            color: #fff;
-            background-color: #333;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .buttons a::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 40px;
-            height: 40px;
-
-            background-size: cover;
-            background-position: center;
-            transform: translate(-50%, -50%);
-        }
-
-        .buttons a:hover {
-            background-color: #555;
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .buttons a:active {
-            background-color: #333;
-            transform: translateY(0);
-        }
-
-        .footer {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Media Queries para hacer responsive */
-        @media (max-width: 600px) {
-            .welcome h1 {
-                font-size: 36px;
-            }
-
-            .welcome p {
-                font-size: 18px;
-            }
-
-            .buttons a {
-                font-size: 16px;
-                padding: 12px 24px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_admin.css')}}">
 </head>
 <body>
     <div class="welcome">
@@ -136,8 +14,8 @@
 
     <div class="container">
         <div class="buttons">
-            <a href="/ver-reservas">Ver Reservas</a> 
-            <a href="/configurar-horarios">Configurar Horarios</a>
+            <a href="/ver-reservas" class="button">Ver Reservas</a> 
+            <a href="/configurar-horarios" class="button">Configurar Horarios</a>
         </div>
     </div>
 

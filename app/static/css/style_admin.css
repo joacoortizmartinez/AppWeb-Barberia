@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #e4e9d3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.welcome h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.welcome p {
+    font-size: 18px;
+    color: #7f8c8d;
+}
+
+.container {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.button {
+    text-decoration: none;
+    background-color: #8f4917;
+    color: #ffffff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.button:hover {
+    background-color: #5A2D0C; 
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #f4f4f9;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .welcome h1 {
+        font-size: 36px;
+    }
+
+    .welcome p {
+        font-size: 16px;
+    }
+
+    .button {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome h1 {
+        font-size: 28px;
+    }
+
+    .welcome p {
+        font-size: 14px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button {
+        padding: 10px 25px;
+        font-size: 12px;
+    }
+}
