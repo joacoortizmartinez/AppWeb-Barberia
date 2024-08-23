@@ -55,7 +55,7 @@ button:hover {
     background-color: #663512; 
 }
 
-/* Estilo para pantallas pequeñas */
+
 @media (max-width: 768px) {
     form {
         padding: 20px;

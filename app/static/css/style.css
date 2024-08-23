@@ -16,6 +16,8 @@ body {
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
 }
 
 .logo {
@@ -35,16 +37,17 @@ body {
 .nav-links a {
     color: rgb(255, 255, 255);
     text-decoration: none;
-    margin: 0 4px;
-    font-size: 13px;
+    margin: 0 8px; 
+    font-size: 14px; 
     border: 2px solid transparent;
     transition: border 0.4s;
-    padding: 5px 10px;
+    padding: 6px 12px;
 }
 
 .nav-links a:hover {
     border: 2px solid rgb(255, 255, 255);
 }
+
 
 .background-image {
     background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
@@ -128,15 +131,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 
-    .nav-links {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
 
     .background-image {
         height: 50vh;
@@ -148,10 +143,26 @@ body {
         font-size: 16px;
     }
 
+
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        flex-grow: 0; 
+    }
+
     .logo img {
         height: 25px;
     }
 
+    .nav-links a {
+        font-size: 12px; 
+        padding: 4px 8px; 
+    }
+}
     .text-corte, .text-barba, .text-nino {
         font-size: 20px;
         margin-top: 150px;
