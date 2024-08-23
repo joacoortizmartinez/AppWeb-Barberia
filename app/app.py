@@ -4,6 +4,7 @@ from mysql.connector import Error
 import mysql.connector
 from clases.reservas import Reserva
 from clases.user import User
+from config import obtener_bd, cerrar_bd
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps

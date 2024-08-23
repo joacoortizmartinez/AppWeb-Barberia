@@ -181,7 +181,7 @@ body {
     .imagen-corte, .imagen-ninos, .imagen-barba {
         margin: 0;
     }
-}
+
 
 @media (max-width: 480px) {
     .main-text {
