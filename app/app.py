@@ -1,6 +1,5 @@
 import os
 from flask import Flask, render_template, request, url_for, redirect, jsonify, flash, session
-from config import obtener_bd, cerrar_bd
 from mysql.connector import Error
 import mysql.connector
 from clases.reservas import Reserva
@@ -8,6 +7,24 @@ from clases.user import User
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
+import mysql
+import mysql.connector
+
+DATABASE_CONFIG = {
+        'host' : "localhost",
+        'user' : "root",
+        'password' : "",
+        'database' : "barberia"
+    }
+
+def obtener_bd():
+    cone = mysql.connector.connect(**DATABASE_CONFIG)
+    return cone
+
+def cerrar_bd(cone, cursor):
+    cursor.close()
+    cone.close()
+        
 
 
 app = Flask(__name__)
