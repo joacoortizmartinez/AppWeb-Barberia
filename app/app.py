@@ -294,7 +294,7 @@ def ver_reservas():
                         
     return render_template('admin/ver_reservas.html', reservas=resultado, fecha_seleccionada=fecha)
     
-
+#---------------------------------cerrar sesion--------------------------------------------------#
 @app.route("/cerrar-sesion", methods=["POST"])
 def cerrar_sesion():
     session.clear()
