@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_admin.css')}}">
 </head>
 <body>
+    <form action="/cerrar-sesion" method="post">
+        <button type="submit" class="cerrar-s">Cerrar sesión</button>
+    </form>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
         <ul class="flashes">
@@ -27,7 +30,7 @@
             <a href="/configurar-horarios" class="button">Configurar Horarios</a>
         </div>
     </div>
-
+    
     <div class="footer">
         <p>&copy; 2024 Sistema de Reservas. Todos los derechos reservados. <a href="https://www.instagram.com/">Contacto</a> | <a href="#">Política de Privacidad</a></p>
     </div>
