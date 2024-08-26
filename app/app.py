@@ -65,7 +65,7 @@ def reserva():
                 return "La fecha y hora seleccionadas ya están ocupadas. Por favor, elija otra."
         
         except Error as e:
-            print(f"Hubo un error: {e}")
+            flash(f"Hubo un error: {e}")
             return "Error en la reserva. Por favor, intente nuevamente."
             
         finally:
